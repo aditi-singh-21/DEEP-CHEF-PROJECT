@@ -32,14 +32,14 @@ def download_image(url,folder,img_no,recipe_name,ignore_msgs=False):
         
 def download_images(download_path,recipe_name,recipe_index,urls,count,ignore_msgs=False):
     try:
-        recipe_name1=str(recipe_index) + "_" + recipe_name
-        train=os.path.join(download_path,"train",recipe_name1)
-        test=os.path.join(download_path,"test",recipe_name1)
-        if not os.path.exists(train):
-            os.makedirs(train)
-        if not os.path.exists(test):
-            os.makedirs(test)
-        x=1
+        # recipe_name1=str(recipe_index) + "_" + recipe_name
+        # train=os.path.join(download_path,"train",recipe_name1)
+        # test=os.path.join(download_path,"test",recipe_name1)
+        # if not os.path.exists(train):
+        #     os.makedirs(train)
+        # if not os.path.exists(test):
+        #     os.makedirs(test)
+        # x=1
         for url in urls:
             if(x<=count):
                 download_image(url,train,x,recipe_name)
@@ -67,8 +67,5 @@ def logfile_urls(image_urls,train_images,log_path,ignore_msgs=False):
             log_file.write("$$$$\n")
             log_file.write("\n")
             log_file.flush()
-    except Exception as e:
-        if not ignore_msgs:
-            print("Exception occurred while logging urls\n",e)
-
+    
 
